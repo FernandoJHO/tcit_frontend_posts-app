@@ -21,15 +21,8 @@ import FilterForm from '../filterForm'
 function Page(props) {
 
 	const {
-		handleFilter,
-		handleInputChange,
-		handleSubmit,
 		handleCloseMsg,
-		handleDelete,
 		message,
-		isLoading,
-		filteredPosts,
-		posts,
 	} = props;
 
 	var messageAlert = null;
@@ -52,7 +45,7 @@ function Page(props) {
 	            <CardBody className="text-center">
 
 	              <Container fluid>
-	              	<FilterForm handleFilter={handleFilter} handleInputChange={handleInputChange} />
+	              	<FilterForm />
 	              </Container>
 
 	              <br/>
@@ -60,13 +53,13 @@ function Page(props) {
 	              <br/>
 
 	              <Container fluid>
-	              	<PostsList isLoading={isLoading} filteredPosts={filteredPosts} posts={posts} handleDelete={handleDelete} />
+	              	<PostsList />
 	              </Container>
 
 	              <br/>
 
 	              <Container fluid>
-	              	<CreateForm handleSubmit={handleSubmit} handleInputChange={handleInputChange} />
+	              	<CreateForm />
 	              </Container>
 
 	            </CardBody>
