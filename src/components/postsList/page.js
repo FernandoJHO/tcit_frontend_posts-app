@@ -42,7 +42,7 @@ function Page(props){
     return (<tr key={post.id}>
         <td>{post.name}</td>
         <td>{post.description}</td>
-        <td><Button color="danger" onClick={() => handleDelete(post.id)}> Eliminar </Button></td>
+        <td><Button outline color="danger" onClick={() => handleDelete(post.id)} size="sm"> Eliminar </Button></td>
       </tr>
       );
 
