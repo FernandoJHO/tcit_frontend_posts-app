@@ -33,38 +33,11 @@ function Page(props) {
 	} = props;
 
 	var messageAlert = null;
-	//var loader = null;
 
     if(message){
 
       messageAlert = (<Alert color="info">{message} <Button close onClick={handleCloseMsg}/></Alert>);
     }
-
-    // if(isLoading){
-    //   loader = <Spinner color="info" />;
-    // }
-
-    // const postsList = posts.map(post => {
-
-    //   return (<tr key={post.id}>
-    //       <td>{post.name}</td>
-    //       <td>{post.description}</td>
-    //       <td><Button outline color="danger" onClick={() => handleDelete(post.id)} size="sm"> Eliminar </Button></td>
-    //     </tr>
-    //     );
-
-    // });
-
-    // const filteredPostsList = filteredPosts.map(post => {
-
-    //   return (<tr key={post.id}>
-    //       <td>{post.name}</td>
-    //       <td>{post.description}</td>
-    //       <td><Button color="danger" onClick={() => handleDelete(post.id)}> Eliminar </Button></td>
-    //     </tr>
-    //     );
-
-    // });
 
 	return (
 
