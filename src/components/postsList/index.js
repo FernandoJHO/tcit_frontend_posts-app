@@ -31,6 +31,9 @@ class PostsList extends Component {
 	async componentDidMount() {
 		this.setState({isLoading: true});
 
+		/* await getPosts().then(res => {this.props.loadPosts(res.data);
+			this.setState({isLoading: false});
+		}); */
 		await getPosts().then(res => {this.setState({postsList: res.data, isLoading: false});});
 		const { postsList } = this.state;
 		this.props.loadPosts(postsList);
@@ -55,7 +58,7 @@ class PostsList extends Component {
 
 		this.setState({postsList: postsList});
 		this.props.loadPosts(postsList);
-		this.props.loadFilteredPosts(filteredPosts);
+		this.props.loadFilteredPosts(filteredPosts); 
 	}
 
 	render() {

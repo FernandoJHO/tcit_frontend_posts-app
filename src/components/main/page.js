@@ -5,14 +5,7 @@ import {
   Card,
   CardBody,
   CardHeader,
-  Col,
-  Container,
-  Form,
-  FormGroup,
-  Input,
-  Row,
-  Table,
-  Spinner
+  Container
 } from 'reactstrap';
 import CreateForm from '../createForm';
 import PostsList from '../postsList';

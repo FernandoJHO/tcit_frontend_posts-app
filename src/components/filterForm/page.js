@@ -1,18 +1,10 @@
 import React, { Fragment } from 'react';
 import {
-  Alert,
   Button,
-  Card,
-  CardBody,
-  CardHeader,
   Col,
-  Container,
   Form,
   FormGroup,
-  Input,
-  Row,
-  Table,
-  Spinner
+  Input
 } from 'reactstrap';
 
 function Page(props){

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Page from './page';
 import { connect } from 'react-redux';
 import loadFilteredPosts from '../../redux/actions/loadFilteredPosts';
-import loadPosts from '../../redux/actions/loadPosts';
 
 class FilterForm extends Component {
 
