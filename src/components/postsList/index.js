@@ -5,6 +5,8 @@ import Page from './page';
 import loadPosts from '../../redux/actions/loadPosts';
 import loadFilteredPosts from '../../redux/actions/loadFilteredPosts';
 import setMessage from '../../redux/actions/setMessage';
+import removePost from '../../redux/actions/removePost';
+import removeFilteredPost from '../../redux/actions/removeFilteredPost';
 
 function getPosts(){
   return axios.get('/posts');
@@ -20,7 +22,6 @@ class PostsList extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			postsList: [],
 			deletedPost: {id: null, name: null, description: null},
 			isLoading: false
 		};
@@ -31,12 +32,10 @@ class PostsList extends Component {
 	async componentDidMount() {
 		this.setState({isLoading: true});
 
-		/* await getPosts().then(res => {this.props.loadPosts(res.data);
+		await getPosts().then(res => {this.props.loadPosts(res.data);
 			this.setState({isLoading: false});
-		}); */
-		await getPosts().then(res => {this.setState({postsList: res.data, isLoading: false});});
-		const { postsList } = this.state;
-		this.props.loadPosts(postsList);
+		}); 
+
 	}
 
 	async handleDelete(id){
@@ -45,20 +44,10 @@ class PostsList extends Component {
 			this.props.setMessage("Se ha eliminado el post: " + res.data.name);
 		});
 
-		let { postsList, deletedPost } = this.state;
-		let { filteredPosts } = this.props;
-
-		let index = postsList.findIndex(post => post.id === deletedPost.id);
-		postsList.splice(index,1);
-		let indexFiltered = filteredPosts.findIndex(post => post.id === deletedPost.id);
-
-		if(indexFiltered !== -1){
-			filteredPosts.splice(indexFiltered, 1);
-		}
-
-		this.setState({postsList: postsList});
-		this.props.loadPosts(postsList);
-		this.props.loadFilteredPosts(filteredPosts); 
+		let { deletedPost } = this.state;
+		
+		this.props.removePost(deletedPost);
+		this.props.removeFilteredPost(deletedPost);	
 	}
 
 	render() {
@@ -87,6 +76,8 @@ const mapDispatchToProps = (dispatch) => {
 		loadPosts: postsList => dispatch(loadPosts(postsList)),
 		loadFilteredPosts: filteredPosts => dispatch(loadFilteredPosts(filteredPosts)),
 		setMessage: message => dispatch(setMessage(message)),
+		removePost: post => dispatch(removePost(post)),
+		removeFilteredPost: filteredPost => dispatch(removeFilteredPost(filteredPost)),
 	};
 
 }

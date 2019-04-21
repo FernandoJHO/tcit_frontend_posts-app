@@ -12,26 +12,23 @@ class FilterForm extends Component {
 		};
 
 		this.handleInputChange = this.handleInputChange.bind(this);
-		this.handleFilter = this.handleFilter.bind(this);
+		//this.handleFilter = this.handleFilter.bind(this);
 	}
 
 	handleInputChange(event){
 		const target = event.target;
 		const name = target.name;
 		const value = target.value;
-		this.setState({[name]: value});
-	}
+		let inputValue = {[name]: value};
 
-	handleFilter(event){	
-		event.preventDefault();
-		const filterContent = this.state.filterContent;
+		const filterContent = inputValue.filterContent;
 
 		const { posts } = this.props;
 
 		let filteredPosts;
 
 		if(filterContent){
-			filteredPosts = posts.filter(post => post.name.toLowerCase().includes(filterContent.toLowerCase()));
+			filteredPosts = posts.filter(post => post.name.toLowerCase().trim().includes(filterContent.toLowerCase().trim()));
 		} else{
 			filteredPosts = [];
 		}
@@ -42,7 +39,7 @@ class FilterForm extends Component {
 	render() {
 
 		return (
-			<Page handleInputChange={this.handleInputChange} handleFilter={this.handleFilter} />
+			<Page handleInputChange={this.handleInputChange} />
 		);
 
 	}
