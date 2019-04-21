@@ -39,7 +39,7 @@ function Page(props){
   });
 
   if(isLoading){
-    loader = <Spinner color="info" />;
+    loader = <Spinner style={{ width: '3rem', height: '3rem' }} type="grow" color="info" />;
   }
 
   return (
