@@ -10,6 +10,7 @@ import {
 import CreateForm from '../createForm';
 import PostsList from '../postsList';
 import FilterForm from '../filterForm'
+import FileForm from '../fileForm'
 
 function Page(props) {
 
@@ -53,6 +54,10 @@ function Page(props) {
 
 	              <Container fluid>
 	              	<CreateForm />
+	              </Container>
+
+	              <Container fluid>
+	              	<FileForm />
 	              </Container>
 
 	            </CardBody>

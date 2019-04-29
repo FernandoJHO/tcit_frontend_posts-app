@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ApiClient from '../../utils/apiClient'
+import ApiClient from '../../utils/ApiClient'
 import Page from './page';
 import addPost from '../../redux/actions/addPost';
 import setMessage from '../../redux/actions/setMessage';
@@ -33,9 +33,7 @@ class CreateForm extends Component {
 		const postDescription = this.state.postDescription;
 
 		if(postName && postDescription){
-			let data = new FormData();
-			data.append('name', postName);
-			data.append('description', postDescription);
+			let data = {name: postName, description: postDescription};
 			await ApiClient.post(apiUrl, data).then(res => {
 				this.setState({createdPost: {id: res.data.id, name: res.data.name, description: res.data.description}});
 				this.props.setMessage("Se ha creado el post: " + res.data.name);

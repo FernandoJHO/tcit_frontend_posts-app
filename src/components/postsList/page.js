@@ -21,7 +21,7 @@ function Page(props){
     return (<tr key={post.id}>
         <td>{post.name}</td>
         <td>{post.description}</td>
-        <td><Button outline color="danger" onClick={() => handleDelete(post.id)} size="sm"> Eliminar </Button></td>
+        <td><Button outline color="danger" data-id={post.id} onClick={handleDelete} size="sm"> Eliminar </Button></td>
       </tr>
       );
 
@@ -32,7 +32,7 @@ function Page(props){
     return (<tr key={post.id}>
         <td>{post.name}</td>
         <td>{post.description}</td>
-        <td><Button outline color="danger" onClick={() => handleDelete(post.id)} size="sm"> Eliminar </Button></td>
+        <td><Button outline color="danger" data-id={post.id} onClick={handleDelete} size="sm"> Eliminar </Button></td>
       </tr>
       );
 

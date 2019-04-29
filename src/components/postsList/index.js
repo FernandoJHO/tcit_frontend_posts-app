@@ -1,6 +1,6 @@
 import React, { Component } from 'react'; 
 import { connect } from 'react-redux';
-import ApiClient from '../../utils/apiClient';
+import ApiClient from '../../utils/ApiClient';
 import Page from './page';
 import loadPosts from '../../redux/actions/loadPosts';
 import loadFilteredPosts from '../../redux/actions/loadFilteredPosts';
@@ -31,7 +31,8 @@ class PostsList extends Component {
 
 	}
 
-	async handleDelete(id){
+	async handleDelete(event){
+		let id = event.target.dataset.id;
 		await ApiClient.delete(apiUrl+id).then(res => {
 			this.setState({deletedPost: {id: res.data.id, name: res.data.name, description: res.data.description}});
 			this.props.setMessage("Se ha eliminado el post: " + res.data.name);
